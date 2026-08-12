@@ -625,6 +625,7 @@
       if (!response.ok) throw new Error(`数据加载失败 ${response.status}`);
       state.data = await response.json();
       if (!state.data || !Array.isArray(state.data.regions)) throw new Error('数据格式不正确');
+      // 清理已经不在数据集里的旧收藏，避免收藏页出现脏数据。
       const validIds = new Set(state.data.regions.map(r => r.id));
       state.favorites = new Set([...state.favorites].filter(id => validIds.has(id)));
       state.visited = new Set([...state.visited].filter(id => validIds.has(id)));
@@ -645,6 +646,7 @@
     }
   }
 
+  // 让页面在 GitHub Pages / 本地静态服务器上可直接使用。
   function registerServiceWorker() {
     if (!('serviceWorker' in navigator) || !window.isSecureContext) return;
     navigator.serviceWorker.register('../sw.js').catch(error => console.warn('Service Worker 注册失败', error));
