@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "大湾区温泉区附近公共交通站",
+    "version": "0.1.0",
+    "updated": "2026-08-13",
+    "scope": "温泉区域附近的高铁站、城际/城轨站、地铁站（示意图，非导航精度）",
+    "license": "ODbL-1.0",
+    "dataSources": [
+      "维基百科各铁路车站条目",
+      "各车站公开信息"
+    ]
+  },
+  "stations": [
+    {"id": "tr-gz-guangzhounan", "name": "广州南站", "type": "highspeed", "city": "广州", "line": "高铁/城际枢纽", "lat": 22.99, "lng": 113.27, "approx": true},
+    {"id": "tr-gz-guangzhoudong", "name": "广州东站", "type": "highspeed", "city": "广州", "line": "高铁/普速枢纽", "lat": 23.151, "lng": 113.32, "approx": true},
+    {"id": "tr-gz-xintang", "name": "新塘南站", "type": "intercity", "city": "广州", "line": "穗深城际", "lat": 23.127, "lng": 113.643, "approx": true},
+    {"id": "tr-gz-conghua", "name": "从化客运站", "type": "metro", "city": "广州", "line": "地铁14号线", "lat": 23.548, "lng": 113.587, "approx": true},
+    {"id": "tr-gz-zengcheng", "name": "增城广场站", "type": "metro", "city": "广州", "line": "地铁21号线", "lat": 23.28, "lng": 113.82, "approx": true},
+
+    {"id": "tr-hz-huizhoubei", "name": "惠州北站", "type": "highspeed", "city": "惠州", "line": "赣深高铁/广惠城际", "lat": 23.17, "lng": 114.38, "approx": true},
+    {"id": "tr-hz-huizhounan", "name": "惠州南站", "type": "highspeed", "city": "惠州", "line": "广汕高铁", "lat": 22.98, "lng": 114.42, "approx": true},
+    {"id": "tr-hz-huidong", "name": "惠东站", "type": "highspeed", "city": "惠州", "line": "广汕高铁", "lat": 22.98, "lng": 114.72, "approx": true},
+    {"id": "tr-hz-huidongnan", "name": "惠东南站", "type": "highspeed", "city": "惠州", "line": "厦深铁路", "lat": 22.8, "lng": 114.78, "approx": true},
+    {"id": "tr-hz-luofushan", "name": "罗浮山站", "type": "highspeed", "city": "惠州", "line": "广汕高铁", "lat": 23.18, "lng": 114.02, "approx": true},
+    {"id": "tr-hz-boluobei", "name": "博罗北站", "type": "highspeed", "city": "惠州", "line": "赣深高铁", "lat": 23.42, "lng": 114.52, "approx": true},
+    {"id": "tr-hz-xiaojinkou", "name": "小金口站", "type": "intercity", "city": "惠州", "line": "莞惠城际", "lat": 23.15, "lng": 114.4, "approx": true},
+
+    {"id": "tr-jm-jiangmen", "name": "江门站", "type": "highspeed", "city": "江门", "line": "深湛铁路/广珠城际", "lat": 22.4886, "lng": 113.0647, "approx": true},
+    {"id": "tr-jm-xinhui", "name": "新会站", "type": "intercity", "city": "江门", "line": "广珠城际江门支线", "lat": 22.52, "lng": 113.03, "approx": true},
+    {"id": "tr-jm-taishan", "name": "台山站", "type": "highspeed", "city": "江门", "line": "深湛铁路", "lat": 22.3025, "lng": 112.8105, "approx": true},
+    {"id": "tr-jm-kaipingnan", "name": "开平南站", "type": "highspeed", "city": "江门", "line": "深湛铁路", "lat": 22.37, "lng": 112.7, "approx": true},
+    {"id": "tr-jm-enping", "name": "恩平站", "type": "highspeed", "city": "江门", "line": "深湛铁路", "lat": 22.1852, "lng": 112.396, "approx": true},
+
+    {"id": "tr-zh-zhuhai", "name": "珠海站", "type": "highspeed", "city": "珠海", "line": "广珠城际/珠机城际", "lat": 22.218, "lng": 113.5439, "approx": true},
+    {"id": "tr-zh-jinwan", "name": "金湾站", "type": "intercity", "city": "珠海", "line": "珠机城际", "lat": 22.12, "lng": 113.33, "approx": true},
+    {"id": "tr-zh-jichang", "name": "珠海机场站", "type": "intercity", "city": "珠海", "line": "珠机城际", "lat": 22.01, "lng": 113.37, "approx": true},
+
+    {"id": "tr-zs-zhongshan", "name": "中山站", "type": "intercity", "city": "中山", "line": "广珠城际", "lat": 22.5461, "lng": 113.4314, "approx": true},
+    {"id": "tr-zs-nanlang", "name": "南朗站", "type": "intercity", "city": "中山", "line": "广珠城际", "lat": 22.5, "lng": 113.54, "approx": true},
+
+    {"id": "tr-dg-dongguannan", "name": "东莞南站", "type": "highspeed", "city": "东莞", "line": "赣深高铁", "lat": 22.83, "lng": 114.07, "approx": true},
+
+    {"id": "tr-zq-zhaoqingdong", "name": "肇庆东站", "type": "highspeed", "city": "肇庆", "line": "贵广/南广高铁", "lat": 23.2167, "lng": 112.6578, "approx": true},
+    {"id": "tr-zq-huaiji", "name": "怀集站", "type": "highspeed", "city": "肇庆", "line": "贵广高铁", "lat": 23.91, "lng": 112.18, "approx": true},
+    {"id": "tr-zq-guangning", "name": "广宁站", "type": "highspeed", "city": "肇庆", "line": "贵广高铁", "lat": 23.63, "lng": 112.42, "approx": true},
+    {"id": "tr-zq-sihui", "name": "四会站", "type": "intercity", "city": "肇庆", "line": "广佛肇城轨", "lat": 23.38, "lng": 112.73, "approx": true},
+    {"id": "tr-zq-nanjiangkou", "name": "南江口站", "type": "highspeed", "city": "云浮", "line": "南广高铁（德庆/封开方向）", "lat": 23.13, "lng": 111.8, "approx": true}
+  ]
+}

@@ -1,0 +1,87 @@
+<svg id="gdMap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6f5f8"/>
+      <stop offset="1" stop-color="#cfe9f0"/>
+    </linearGradient>
+    <linearGradient id="landGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf4e4"/>
+      <stop offset="1" stop-color="#f7e8c8"/>
+    </linearGradient>
+    <radialGradient id="cityDot" cx="0.4" cy="0.35" r="1">
+      <stop offset="0" stop-color="#ffab7a"/>
+      <stop offset="1" stop-color="#e86a33"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="640" fill="url(#seaGrad)"/>
+  <g stroke="#b7dce6" stroke-width="2" fill="none" opacity="0.55">
+    <path d="M40,600 Q80,590 120,600 T200,600 T280,600"/>
+    <path d="M120,625 Q160,615 200,625 T280,625 T360,625"/>
+    <path d="M560,610 Q600,600 640,610 T720,610 T800,610"/>
+    <path d="M680,585 Q720,575 760,585"/>
+  </g>
+
+  <ellipse cx="492" cy="472" rx="72" ry="46" fill="#b8dfea" opacity="0.7"/>
+  <text x="492" y="476" text-anchor="middle" font-size="15" fill="#6fa8b8" opacity="0.9">珠江口</text>
+
+  <g stroke="#9ccfd9" stroke-width="4" fill="none" opacity="0.7" stroke-linecap="round">
+    <path d="M150,330 Q200,340 240,360 Q300,380 340,400 Q370,415 400,435"/>
+    <path d="M300,250 Q350,280 400,300 Q440,315 470,340 Q495,370 505,400"/>
+    <path d="M620,250 Q580,290 540,330 Q510,370 500,420"/>
+  </g>
+
+  <path d="M133,35
+    Q250,15 400,20 Q500,25 560,70
+    Q660,110 720,170 Q765,200 755,260
+    Q745,300 690,350 Q640,400 570,440
+    Q530,470 500,500 Q480,530 455,560
+    Q420,570 400,540 Q380,520 360,500
+    Q340,490 330,470 Q300,470 270,460
+    Q220,440 180,410 Q130,380 90,340
+    Q55,300 60,240 Q65,170 85,120
+    Q105,70 133,35 Z"
+    fill="url(#landGrad)" stroke="#e6cd9e" stroke-width="3" stroke-linejoin="round" opacity="0.96"/>
+
+  <g stroke="#ead9b4" stroke-width="1.5" fill="none" opacity="0.8">
+    <path d="M170,270 Q220,245 280,250 Q340,255 400,240"/>
+    <path d="M200,300 Q260,280 330,285 Q400,290 460,270"/>
+    <path d="M560,140 Q620,160 660,200"/>
+    <path d="M590,180 Q640,200 670,235"/>
+  </g>
+
+  <g font-size="16" font-weight="600" fill="#5a4632">
+    <g transform="translate(232,293)"><circle r="13" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6.5" fill="url(#cityDot)"/></g><text x="232" y="318" text-anchor="middle">肇庆</text>
+    <g transform="translate(364,300)"><circle r="13" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6.5" fill="url(#cityDot)"/></g><text x="364" y="325" text-anchor="middle">佛山</text>
+    <g transform="translate(393,270)"><circle r="15" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="7.5" fill="url(#cityDot)"/></g><text x="393" y="253" text-anchor="middle">广州</text>
+    <g transform="translate(490,300)"><circle r="12" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6" fill="url(#cityDot)"/></g><text x="490" y="323" text-anchor="middle">东莞</text>
+    <g transform="translate(623,275)"><circle r="13" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6.5" fill="url(#cityDot)"/></g><text x="623" y="258" text-anchor="middle">惠州</text>
+    <g transform="translate(419,440)"><circle r="12" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6" fill="url(#cityDot)"/></g><text x="419" y="466" text-anchor="middle">中山</text>
+    <g transform="translate(356,423)"><circle r="12" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6" fill="url(#cityDot)"/></g><text x="330" y="448" text-anchor="middle">江门</text>
+    <g transform="translate(455,509)"><circle r="12" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6" fill="url(#cityDot)"/></g><text x="455" y="536" text-anchor="middle">珠海</text>
+    <g transform="translate(552,433)"><circle r="13" fill="white" stroke="#e8cfa8" stroke-width="2"/><circle r="6.5" fill="url(#cityDot)"/></g><text x="585" y="440" text-anchor="middle">深圳</text>
+  </g>
+
+  <g id="regionLayer"></g>
+  <g id="transitLayer"></g>
+
+  <text x="585" y="470" font-size="12" fill="#b8865a" text-anchor="middle">深圳·暂无天然温泉</text>
+  <text x="364" y="352" font-size="12" fill="#b8865a" text-anchor="middle">佛山·暂无天然温泉</text>
+
+  <g transform="translate(24,24)">
+    <rect x="0" y="0" width="180" height="150" rx="12" fill="white" opacity="0.85"/>
+    <circle cx="24" cy="26" r="9" fill="#e86a33" stroke="white" stroke-width="2"/>
+    <text x="42" y="31" font-size="13" fill="#5a4632">温泉区域</text>
+    <circle cx="24" cy="52" r="9" fill="white" stroke="#e8cfa8" stroke-width="2"/>
+    <circle cx="24" cy="52" r="4" fill="#ffab7a"/>
+    <text x="42" y="57" font-size="13" fill="#5a4632">地级市</text>
+    <rect x="16" y="72" width="16" height="16" rx="3" fill="#e64545" stroke="white" stroke-width="1.5"/>
+    <text x="42" y="86" font-size="13" fill="#5a4632">高铁站</text>
+    <rect x="16" y="98" width="16" height="16" rx="3" fill="#3e8ec9" stroke="white" stroke-width="1.5"/>
+    <text x="42" y="112" font-size="13" fill="#5a4632">城轨站</text>
+    <rect x="16" y="124" width="16" height="16" rx="3" fill="#3da35d" stroke="white" stroke-width="1.5"/>
+    <text x="42" y="138" font-size="13" fill="#5a4632">地铁站</text>
+  </g>
+
+  <text x="800" y="630" text-anchor="end" font-size="11" fill="#b3a48f">示意图 · 非精确边界 · 坐标为镇/片区级</text>
+</svg>
