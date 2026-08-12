@@ -1,0 +1,14 @@
+{
+  "name": "湾区温泉大全",
+  "short_name": "湾区温泉",
+  "lang": "zh-CN",
+  "start_url": "./app/index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF8F2",
+  "theme_color": "#E86A33",
+  "description": "按温泉区域查找粤港澳大湾区温泉小镇、温泉区及区域内酒店民宿",
+  "icons": [
+    {"src": "./app/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
