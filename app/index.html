@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#E86A33">
+<meta name="description" content="按温泉区域查找粤港澳大湾区温泉小镇、温泉区及区域内酒店民宿">
+<link rel="manifest" href="../manifest.webmanifest">
+<title>湾区温泉大全</title>
+<style>
+  :root {
+    --primary: #E86A33;
+    --primary-light: #FFAB7A;
+    --primary-bg: #FFF3E8;
+    --bg: #FFF8F2;
+    --card: #ffffff;
+    --text: #3D2E1F;
+    --text-2: #8a7763;
+    --line: #F0E2D2;
+    --green: #3DA35D;
+    --blue: #3E8EC9;
+    --radius: 16px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { height:100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background:#F2EAE0; color:var(--text);
+    display:flex; justify-content:center;
+  }
+  #app {
+    width:100%; max-width:480px; height:100dvh;
+    background:var(--bg); position:relative; overflow:hidden;
+    display:flex; flex-direction:column;
+    box-shadow:0 0 40px rgba(80,50,20,.15);
+  }
+  .navbar {
+    height:52px; background:var(--card); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .navbar .capsule {
+    position:absolute; left:12px; width:72px; height:28px;
+    border:1px solid #ddd; border-radius:16px; display:flex; align-items:center; justify-content:space-evenly;
+  }
+  .capsule .dot { width:6px; height:6px; border-radius:50%; background:#bbb; }
+  .navbar h1 { font-size:17px; font-weight:700; letter-spacing:1px; }
+  .navbar .nav-right { position:absolute; right:12px; font-size:18px; }
+  .navbar .nav-right span { padding:4px; }
+  .pages { flex:1; position:relative; overflow:hidden; }
+  .page {
+    position:absolute; inset:0; overflow-y:auto;
+    opacity:0; pointer-events:none; transform:translateX(24px);
+    transition:opacity .25s, transform .25s;
+    -webkit-overflow-scrolling:touch;
+  }
+  .page.active { opacity:1; pointer-events:auto; transform:none; }
+  .tabbar {
+    height:56px; background:var(--card); flex-shrink:0;
+    display:flex; border-top:1px solid var(--line);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .tabbar .tab {
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--text-2); font-size:11px; gap:2px; cursor:pointer;
+  }
+  .tabbar .tab .ico { font-size:20px; line-height:1; }
+  .tabbar .tab.active { color:var(--primary); font-weight:600; }
+  #page-map { display:flex; flex-direction:column; }
+  .map-wrap { flex:1; position:relative; min-height:0; }
+  #mapSvg { position:absolute; inset:0; }
+  .map-wrap svg { width:100%; height:100%; display:block; }
+  .map-tools { position:absolute; top:10px; right:10px; display:flex; flex-direction:column; gap:8px; z-index:5; }
+  .map-tools button {
+    background:#fff; border:1px solid var(--line); border-radius:22px; height:44px;
+    padding:0 14px; font-size:13px; color:var(--text); box-shadow:0 2px 8px rgba(0,0,0,.08);
+    cursor:pointer; display:flex; align-items:center; gap:4px;
+  }
+  .map-tools button:active { background:var(--primary-bg); }
+  #leafletBox { position:absolute; inset:0; z-index:4; display:none; }
+  #leafletBox.show { display:block; }
+  .r-marker { cursor:pointer; }
+  .r-marker .bubble { transition:transform .15s; transform-origin:0 0; }
+  .r-marker:hover .bubble, .r-marker.sel .bubble { transform:scale(1.25); }
+  .r-marker .r-label { font-size:11px; fill:#7a4a2a; font-weight:600; text-anchor:middle; paint-order:stroke; stroke:#fff; stroke-width:3px; }
+  .r-marker .bubble { filter:drop-shadow(0 2px 3px rgba(232,106,51,.4)); }
+  .t-marker { cursor:pointer; }
+  .t-marker .t-label { font-size:10px; fill:#6b5640; text-anchor:middle; paint-order:stroke; stroke:#fff; stroke-width:2.5px; }
+  .filter-bar { background:var(--card); padding:10px 12px 8px; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:3; }
+  .search-row { height:36px; background:var(--bg); border:1px solid var(--line); border-radius:18px; display:flex; align-items:center; gap:6px; padding:0 10px; margin-bottom:8px; color:var(--text-2); }
+  .search-row input { min-width:0; flex:1; border:0; outline:0; background:transparent; color:var(--text); font-size:13px; }
+  .search-row input::-webkit-search-cancel-button { display:none; }
+  .search-row button { border:0; background:transparent; color:var(--text-2); font-size:20px; line-height:1; display:none; cursor:pointer; }
+  .search-row button.show { display:block; }
+  .chips { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+  .chips::-webkit-scrollbar { display:none; }
+  .status-chips { padding-bottom:2px; }
+  .status-chips .chip { padding:4px 10px; font-size:12px; }
+  .status-chips .chip small { opacity:.8; }
+  .auth-chips { padding-bottom:2px; }
+  .auth-chips .chip { padding:4px 10px; font-size:12px; }
+  .auth-chips .chip small { opacity:.8; }
+  .chip {
+    flex-shrink:0; padding:6px 14px; border-radius:18px; background:var(--bg);
+    border:1px solid var(--line); font-size:13px; color:var(--text-2); cursor:pointer; white-space:nowrap;
+  }
+  .chip.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+  .sort-row { display:flex; gap:10px; margin-top:4px; align-items:center; }
+  .sort-row .sort-btn { font-size:12px; color:var(--text-2); cursor:pointer; padding:3px 4px; border:0; background:transparent; font-family:inherit; }
+  .sort-row .sort-btn.active { color:var(--primary); font-weight:600; }
+  .sort-row .locate-btn { margin-left:auto; font-size:12px; color:var(--blue); cursor:pointer; border:0; background:transparent; padding:3px 0; }
+  .list { padding:10px 12px 20px; display:flex; flex-direction:column; gap:10px; }
+  .r-card {
+    background:var(--card); border-radius:var(--radius); padding:14px;
+    box-shadow:0 1px 4px rgba(120,80,30,.06); cursor:pointer; position:relative;
+  }
+  .r-card:active { background:#fdf6ee; }
+  .r-card .top { display:flex; align-items:flex-start; gap:10px; }
+  .r-card .ico-box {
+    width:46px; height:46px; border-radius:12px; background:var(--primary-bg);
+    display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;
+  }
+  .r-card .info { flex:1; min-width:0; }
+  .r-card .name { font-size:16px; font-weight:700; display:flex; align-items:center; gap:6px; }
+  .r-card .name .hot { font-size:11px; background:var(--primary); color:#fff; padding:1px 6px; border-radius:8px; }
+  .r-card .meta { font-size:12px; color:var(--text-2); margin-top:4px; }
+  .r-card .tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; }
+  .r-card .tag { font-size:11px; background:var(--bg); color:#a06a3a; padding:2px 8px; border-radius:10px; }
+  .r-card .tag.cert { background:#e4f5e8; color:var(--green); }
+  .r-card .tag.pending { background:#fff2d8; color:#9b702e; }
+  .r-card .tag.closed { background:#f3e7e7; color:#a05252; }
+  .r-card .tag.resource { background:#e9edf5; color:#5f718c; }
+  .r-card .tag.auth-mixed { background:#fff2d8; color:#9b702e; }
+  .r-card .tag.auth-uncertain { background:#e9edf5; color:#5f718c; }
+  .r-card .fav { position:absolute; right:12px; top:12px; font-size:20px; cursor:pointer; z-index:2; }
+  .sheet-mask {
+    position:absolute; inset:0; background:rgba(40,20,5,.45); z-index:20;
+    opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .sheet-mask.show { opacity:1; pointer-events:auto; }
+  .sheet {
+    position:absolute; left:0; right:0; bottom:0; z-index:21;
+    background:var(--bg); border-radius:20px 20px 0 0; max-height:82%;
+    transform:translateY(100%); transition:transform .32s cubic-bezier(.2,.8,.25,1);
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .sheet.show { transform:none; }
+  .sheet-top { height:30px; position:relative; flex-shrink:0; }
+  .sheet .grab { width:40px; height:4px; border-radius:2px; background:#d9c9b8; position:absolute; left:50%; top:10px; transform:translateX(-50%); }
+  #sheetClose { position:absolute; right:12px; top:3px; width:28px; height:28px; border:0; border-radius:50%; background:transparent; color:var(--text-2); font-size:24px; line-height:24px; cursor:pointer; }
+  #sheetClose:active { background:var(--primary-bg); }
+  .sheet .s-body { overflow-y:auto; padding:6px 18px 24px; }
+  .sheet .s-head { display:flex; align-items:flex-start; gap:12px; margin-bottom:10px; }
+  .sheet .s-ico { width:52px; height:52px; border-radius:14px; background:var(--primary-bg); display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+  .sheet .s-title { font-size:20px; font-weight:800; }
+  .sheet .s-sub { font-size:13px; color:var(--text-2); margin-top:2px; }
+  .s-badges { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+  .s-badge { font-size:12px; padding:4px 10px; border-radius:12px; background:var(--primary-bg); color:#a06a3a; }
+  .s-badge.temp { background:#ffe8d6; color:var(--primary); font-weight:700; }
+  .s-badge.cert { background:#e4f5e8; color:var(--green); }
+  .s-badge.pending { background:#fff2d8; color:#9b702e; }
+  .s-badge.closed { background:#f3e7e7; color:#a05252; }
+  .s-badge.resource { background:#e9edf5; color:#5f718c; }
+  .s-badge.auth-mixed { background:#fff2d8; color:#9b702e; }
+  .s-badge.auth-uncertain { background:#e9edf5; color:#5f718c; }
+  .s-intro { font-size:14px; line-height:1.7; color:var(--text); background:#fff; border-radius:12px; padding:12px; }
+  .s-hotels { margin-top:14px; }
+  .s-hotels h3 { font-size:14px; color:var(--text-2); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .s-hotel {
+    background:#fff; border-radius:12px; padding:12px; margin-bottom:8px; border:1px solid var(--line);
+  }
+  .s-hotel .h-name { font-size:15px; font-weight:700; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .s-hotel .h-cert { font-size:11px; background:#e4f5e8; color:var(--green); padding:1px 7px; border-radius:8px; }
+  .s-hotel .h-cert.none { background:#f0ece6; color:var(--text-2); }
+  .s-hotel .h-cert.fake { background:#f3e7e7; color:#a05252; }
+  .s-hotel .h-cert.pending { background:#fff2d8; color:#9b702e; }
+  .s-hotel .h-price { font-size:13px; color:var(--primary); font-weight:600; margin-top:4px; }
+  .s-hotel .h-desc { font-size:12px; color:var(--text-2); margin-top:3px; }
+  .s-actions { display:flex; gap:10px; margin-top:14px; }
+  .s-actions button {
+    flex:1; height:46px; border-radius:23px; border:none; font-size:15px; font-weight:700; cursor:pointer;
+  }
+  .s-nav { margin-top:12px; }
+  .s-nav a {
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    height:46px; border-radius:23px; background:var(--blue); color:#fff;
+    font-size:15px; font-weight:700; text-decoration:none;
+  }
+  .s-nav a:active { opacity:.85; }
+  .s-actions .btn-fav { background:var(--primary); color:#fff; }
+  .s-actions .btn-fav.on { background:#fff; color:var(--primary); border:2px solid var(--primary); }
+  .s-actions .btn-go { background:#fff; color:var(--green); border:2px solid var(--green); }
+  .s-actions .btn-go.on { background:var(--green); color:#fff; border-color:var(--green); }
+  .s-src { font-size:11px; color:#b3a48f; margin-top:12px; text-align:center; line-height:1.6; }
+  .s-src a { color:var(--blue); text-decoration:none; }
+  .s-note { margin-top:10px; background:#fff7e8; border:1px dashed #e8cfa8; border-radius:10px; padding:10px; font-size:12px; line-height:1.6; color:#8a6a3a; }
+  .seg { display:flex; background:var(--card); margin:12px; border-radius:22px; padding:4px; border:1px solid var(--line); }
+  .seg div { flex:1; text-align:center; padding:8px 0; border-radius:18px; font-size:14px; color:var(--text-2); cursor:pointer; }
+  .seg div.active { background:var(--primary); color:#fff; font-weight:700; }
+  .empty { text-align:center; color:var(--text-2); padding:60px 20px; font-size:14px; }
+  .empty .big { font-size:40px; margin-bottom:10px; }
+  .guide { padding:14px; }
+  .guide h2 { font-size:16px; margin:16px 0 10px; color:var(--text); display:flex; align-items:center; gap:6px; }
+  .guide h2:first-child { margin-top:4px; }
+  .g-card { background:#fff; border-radius:14px; padding:13px 15px; margin-bottom:9px; box-shadow:0 1px 3px rgba(120,80,30,.05); display:flex; gap:12px; align-items:flex-start; }
+  .g-card .g-ico { font-size:22px; flex-shrink:0; }
+  .g-card .g-title { font-size:14px; font-weight:700; }
+  .g-card .g-text { font-size:12.5px; color:var(--text-2); margin-top:3px; line-height:1.6; }
+  .tip-note { background:#fff7e8; border:1px dashed #e8cfa8; border-radius:12px; padding:12px; font-size:12px; color:#8a6a3a; line-height:1.7; margin-top:14px; }
+  #toast {
+    position:absolute; left:50%; bottom:90px; transform:translateX(-50%) translateY(10px);
+    background:rgba(50,30,10,.85); color:#fff; font-size:13px; padding:8px 18px; border-radius:20px;
+    opacity:0; transition:all .3s; z-index:40; pointer-events:none; white-space:nowrap;
+  }
+  #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="navbar">
+    <div class="capsule"><span class="dot"></span><span class="dot"></span></div>
+    <h1>♨ 湾区温泉大全</h1>
+    <div class="nav-right"><span id="navCount" style="font-size:12px;color:#8a7763;"></span></div>
+  </div>
+  <div class="pages">
+    <div class="page active" id="page-map">
+      <div class="map-wrap">
+        <div id="mapSvg"></div>
+        <div id="leafletBox"></div>
+        <div class="map-tools">
+          <button id="btnLocate" type="button" aria-label="按当前位置查找最近的温泉区域">📍 离我最近</button>
+          <button id="btnTransit" type="button" aria-label="显示或隐藏公共交通站">🚉 交通站</button>
+          <button id="btnMapMode" type="button" aria-label="切换地图模式">🗺️ 在线地图</button>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-list">
+      <div class="filter-bar">
+        <div class="search-row">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="搜区域、镇名、酒店或特色" autocomplete="off">
+          <button id="clearSearch" type="button" aria-label="清空搜索">×</button>
+        </div>
+        <div class="chips" id="cityChips"></div>
+        <div class="chips status-chips" id="statusChips"></div>
+        <div class="chips auth-chips" id="authChips"></div>
+        <div class="sort-row">
+          <button class="sort-btn" data-sort="default" type="button">综合</button>
+          <button class="sort-btn" data-sort="temp" type="button">温度↓</button>
+          <button class="sort-btn" data-sort="hotel" type="button">酒店多↓</button>
+          <button class="sort-btn" data-sort="distance" type="button">距离↑</button>
+          <button class="locate-btn" id="btnLocateList" type="button">📍 获取位置</button>
+        </div>
+      </div>
+      <div class="list" id="regionList"></div>
+    </div>
+    <div class="page" id="page-fav">
+      <div class="seg" id="favSeg">
+        <div data-favtab="fav" class="active">⭐ 收藏</div>
+        <div data-favtab="go">✅ 去过</div>
+      </div>
+      <div class="list" id="favList"></div>
+    </div>
+    <div class="page" id="page-guide">
+      <div class="guide" id="guideBox"></div>
+    </div>
+  </div>
+  <div class="tabbar" id="tabbar">
+    <div class="tab active" data-tab="map"><span class="ico">🗺️</span>地图</div>
+    <div class="tab" data-tab="list"><span class="ico">📋</span>列表</div>
+    <div class="tab" data-tab="fav"><span class="ico">⭐</span>收藏</div>
+    <div class="tab" data-tab="guide"><span class="ico">♨️</span>攻略</div>
+  </div>
+  <div class="sheet-mask" id="sheetMask"></div>
+  <div class="sheet" id="detailSheet" role="dialog" aria-modal="true" aria-label="温泉区域详情">
+    <div class="sheet-top"><div class="grab"></div><button id="sheetClose" type="button" aria-label="关闭详情">×</button></div>
+    <div class="s-body" id="sheetBody"></div>
+  </div>
+  <div id="toast"></div>
+</div>
+<script src="utils.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
