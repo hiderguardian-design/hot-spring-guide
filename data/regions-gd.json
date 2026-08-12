@@ -1,0 +1,1833 @@
+{
+  "meta": {
+    "title": "大湾区温泉大全",
+    "version": "0.2.2",
+    "updated": "2026-08-13",
+    "scope": "粤港澳大湾区 9 市（广州/深圳/珠海/佛山/惠州/东莞/中山/江门/肇庆）",
+    "level": "region-first-with-status",
+    "license": "ODbL-1.0",
+    "dataSources": [
+      "广东省温泉行业协会「真温泉」泉质认证名单（3批57家）",
+      "惠州市矿产资源总体规划（26个地热田）",
+      "广东省情网/江门市地方志办公室（江门温泉带）",
+      "恩平市志（恩平四大地热泉点）",
+      "肇庆/东莞/中山地方政府公开资料",
+      "各温泉景区官方公开信息",
+      "2025年广东省文化和旅游厅、各地市/区县政府公开文旅资料",
+      "2023—2025年惠州地热资源、温泉产业公开报道（含许可状态提示）"
+    ],
+    "notes": "区域状态：operating=有公开资料确认当前存在经营点；needs_review=有资源或历史资料但当前营业状态仍需核实；closed_or_recruiting=公开政府资料标注停业招商；resource_only=只有资源记录，不代表可直接泡。价格统一标为待核实，避免将估算价当作实时门票。"
+  },
+  "regions": [
+    {
+      "id": "gd-gz-conghua-town",
+      "name": "从化温泉镇",
+      "city": "广州",
+      "district": "从化区",
+      "lat": 23.663,
+      "lng": 113.628,
+      "approx": true,
+      "temp": 63,
+      "springType": [
+        "氡泉",
+        "苏打泉"
+      ],
+      "tags": [
+        "岭南第一泉",
+        "历史名镇",
+        "疗养胜地"
+      ],
+      "intro": "广东最古老的温泉区，流溪河畔省级旅游度假区，以含氡苏打温泉闻名，历史文化底蕴深厚。",
+      "hotelCount": "多家温泉酒店+特色民宿",
+      "hotels": [
+        {
+          "name": "广东温泉宾馆",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "老牌国宾馆，从化氡温泉代表",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "圣托利温泉庄园",
+          "cert": "真温泉·第三批",
+          "price": "待核实",
+          "desc": "地中海风格网红庄园",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "从化碧泉大酒店",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "温泉镇中心，交通便利",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "亿城泉说酒店",
+          "cert": "真温泉·第三批",
+          "price": "待核实",
+          "desc": "高端私汤酒店",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "广州望谷温泉度假村",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "流溪河畔园林式温泉",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "从化华辉度假村",
+          "cert": "医疗价值冷泉",
+          "price": "待核实",
+          "desc": "广东省3家医疗价值冷泉之一",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "广东温泉宾馆",
+        "lat": 23.648,
+        "lng": 113.64,
+        "approx": true
+      },
+      "source": "从化区温泉镇政府公开信息/广东省温泉行业协会名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.conghua.gov.cn/gzchwqz/gkmlpt/content/10/10252/post_10252555.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-gz-conghua-liangkou",
+      "name": "从化良口镇（流溪温泉度假区）",
+      "city": "广州",
+      "district": "从化区",
+      "lat": 23.7,
+      "lng": 113.66,
+      "approx": true,
+      "temp": 65,
+      "springType": [
+        "氡泉"
+      ],
+      "tags": [
+        "流溪河",
+        "山水度假",
+        "高端酒店"
+      ],
+      "intro": "流溪温泉旅游度假区所在地，与温泉镇接壤，山水环境更佳，聚集高端度假酒店。",
+      "hotelCount": "6+家酒店/温泉民宿",
+      "hotels": [
+        {
+          "name": "从化碧水湾温泉度假村",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "流溪河畔大型温泉度假村",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "从化都喜泰丽温泉度假酒店",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "泰式奢华温泉度假",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "卓思道温泉度假酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "瑞士同款氡温泉，徽派+岭南设计",
+          "source": "旅游攻略",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "广州文轩苑温泉度假酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "流溪温泉度假区内，12个温泉泡池",
+          "source": "酒店官网/良口镇政府公开信息",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "上水精品设计酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "良口镇温泉度假区精品住宿",
+          "source": "良口镇政府公开信息",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "设计师村温泉酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "良口镇温泉度假区特色住宿",
+          "source": "良口镇政府公开信息",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "从化碧水湾温泉度假村",
+        "lat": 23.699154,
+        "lng": 113.716214,
+        "approx": false
+      },
+      "source": "从化区良口镇政府公开信息/广东省温泉行业协会名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.conghua.gov.cn/gzchlkz/gkmlpt/content/10/10240/post_10240738.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-gz-zengcheng-paitan",
+      "name": "增城派潭镇（白水寨·高滩）",
+      "city": "广州",
+      "district": "增城区",
+      "lat": 23.55,
+      "lng": 113.82,
+      "approx": true,
+      "temp": 60,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "白水寨",
+        "山地温泉",
+        "溶洞温泉"
+      ],
+      "intro": "白水寨风景名胜区脚下的温泉群，山地露天温泉与溶洞温泉并存的集中片区。",
+      "hotelCount": "7家温泉主题酒店+130+乡村民宿",
+      "hotels": [
+        {
+          "name": "增城三英温泉",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "白水寨旁大型温泉度假村",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "增城香江温泉",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "老牌温泉酒店",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "金叶子温泉度假酒店",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "高山温泉，视野开阔",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "增城白水寨嘉华温泉酒店",
+          "cert": "真温泉·第三批",
+          "price": "待核实",
+          "desc": "白水寨景区旁，背靠青山",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "增城高滩温泉酒店",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "高滩温泉区性价比之选",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "广州森林海温泉度假酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "温泉乐园综合体",
+          "source": "媒体报道",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "增城三英温泉度假村",
+        "lat": 23.48,
+        "lng": 113.79,
+        "approx": true
+      },
+      "source": "广东省文化和旅游厅/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://whly.gd.gov.cn/service_new/hdyg/content/post_4759662.html",
+      "notes": "广东省文化和旅游厅2025年公开信息明确记载派潭镇有7家温泉主题酒店和130多家乡村民宿。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-longmen-yonghan",
+      "name": "龙门永汉镇（南昆山脚）",
+      "city": "惠州",
+      "district": "龙门县",
+      "lat": 23.63,
+      "lng": 113.91,
+      "approx": true,
+      "temp": 65,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "南昆山",
+        "森林氧吧",
+        "温泉集群"
+      ],
+      "intro": "南昆山国家森林公园脚下，永汉地热带核心，广河高速直达，大湾区热门温泉集群。",
+      "notes": "⚠️ 提示：片区温泉经营户数量多、良莠不齐，2023年10月「南昆山蓝天云海温泉酒店」因加热溪水冒充温泉被龙门县市场监管局查处（罚款并删除「温泉」宣传字样）。选店请认准「真温泉」认证或持证开采标识。",
+      "hotelCount": "8家温泉度假区+139家民宿（永汉镇口径）",
+      "hotels": [
+        {
+          "name": "南昆山云顶温泉度假村",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "118个泡池，巴厘岛风情",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "惠州南昆山居",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "高端温泉酒店",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "南昆山温泉大观园",
+          "cert": "持证开采",
+          "price": "待核实",
+          "desc": "惠州持证温泉企业之一",
+          "source": "南都报道",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "保利锦里碧泉湾酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "18个泡池+泳池，亲子度假",
+          "source": "旅游平台",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "南昆山温德姆温泉酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "南昆山脚森林温泉度假酒店",
+          "source": "南方日报2025报道",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "南昆山慕思嘉华温泉酒店",
+          "cert": "五星温泉",
+          "price": "待核实",
+          "desc": "南昆山温泉酒店，获温泉康养相关授牌",
+          "source": "南方日报/新快报",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "南昆山云顶温泉度假村",
+        "lat": 23.63,
+        "lng": 113.91,
+        "approx": true
+      },
+      "source": "南方日报/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://epaper.nfnews.com/m/ipaper/nfrb/html/202504/29/content_10133907.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-longmen-longhua",
+      "name": "龙门龙华镇高沙村",
+      "city": "惠州",
+      "district": "龙门县",
+      "lat": 23.72,
+      "lng": 114.2,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "温泉民宿集群",
+        "田园",
+        "大众消费"
+      ],
+      "intro": "百余家温泉民宿与酒店聚集的自然村，大众温泉消费的代表地。",
+      "hotelCount": "148家温泉酒店/民宿",
+      "hotels": [
+        {
+          "name": "庄加庄温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "园林式乡村温泉，20+泡池",
+          "source": "旅游平台",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "庄加庄温泉度假村",
+        "lat": 23.55,
+        "lng": 113.95,
+        "approx": true
+      },
+      "source": "南方日报/惠州地热资源公开报道",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://epaper.nfnews.com/m/ipaper/nfrb/html/202504/29/content_10133907.html",
+      "notes": "龙华镇高沙片区温泉水已由地热水运营中心统一供应；具体商户数量会随经营变化。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-longmen-longtian",
+      "name": "龙门县城周边（龙田·龙城）",
+      "city": "惠州",
+      "district": "龙门县",
+      "lat": 23.73,
+      "lng": 114.25,
+      "approx": true,
+      "temp": 60,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "客家围屋",
+        "县城便利"
+      ],
+      "intro": "龙门-蓝田地热带的一部分，近县城，配套便利，客家风情浓郁。",
+      "hotelCount": "2个4A级温泉景区",
+      "hotels": [
+        {
+          "name": "龙门尚天然温泉度假村",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "客家围屋酒店特色",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "龙门仙池温泉度假公司",
+          "cert": "持证开采",
+          "price": "待核实",
+          "desc": "持证温泉企业",
+          "source": "南都报道",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "龙门铁泉",
+          "cert": null,
+          "price": "待核实",
+          "desc": "龙田镇国家4A级温泉景区，冷暖水上欢乐世界",
+          "source": "广东省情网",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "龙门尚天然温泉度假村",
+        "lat": 23.791051,
+        "lng": 114.251266,
+        "approx": false
+      },
+      "source": "广东省情网/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://dfz.gd.gov.cn/gdcy/zyz/hz/content/mpost_3494703.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-longmen-dipai",
+      "name": "龙门地派镇",
+      "city": "惠州",
+      "district": "龙门县",
+      "lat": 23.75,
+      "lng": 114.05,
+      "approx": true,
+      "temp": 62,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "山谷秘境",
+        "高端"
+      ],
+      "intro": "群山环抱的山谷温泉，偏硅酸氟泉，以静谧高端体验著称。",
+      "hotelCount": "2+",
+      "hotels": [
+        {
+          "name": "地派温泉度假村",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "山谷中高端温泉，幽静私密",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "地派温泉度假村",
+        "lat": 23.56,
+        "lng": 113.89,
+        "approx": true
+      },
+      "source": "南方日报/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://epaper.nfnews.com/m/ipaper/nfrb/html/202504/29/content_10133907.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-longmen-lantian",
+      "name": "龙门蓝田瑶族乡",
+      "city": "惠州",
+      "district": "龙门县",
+      "lat": 23.88,
+      "lng": 114.12,
+      "approx": true,
+      "temp": 50,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "瑶族风情"
+      ],
+      "intro": "龙门-蓝田地热带北端，瑶族风情地区，地热田存在，开发情况待核实。",
+      "hotelCount": "待核实",
+      "hotels": [
+        {
+          "name": "瑶泉里民宿",
+          "cert": null,
+          "price": "待核实",
+          "desc": "到流村温泉民宿，4层半11间房，顶楼露天泳池",
+          "source": "惠州日报2024年报道",
+          "sourceUrl": "http://e.hznews.com/hzrb/pad/content/202405/28/content_1077450.html",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        },
+        {
+          "name": "悦泉里温泉民宿",
+          "cert": null,
+          "price": "待核实",
+          "desc": "到流村温泉民宿，14间客房，配泳池烧烤场",
+          "source": "惠州日报2024年报道",
+          "sourceUrl": "http://e.hznews.com/hzrb/pad/content/202405/28/content_1077450.html",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        }
+      ],
+      "poi": {
+        "name": "悦泉里温泉民宿",
+        "lat": 23.85,
+        "lng": 114.05,
+        "approx": true
+      },
+      "source": "南方日报（三区一带规划格局）/惠州市地热资源公开资料",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://epaper.nfnews.com/m/ipaper/nfrb/html/202504/29/content_10133907.html",
+      "notes": "资料确认蓝田瑶族乡属于龙门温泉康养产业格局，但本条尚未找到可确认当前对外营业温泉场所的资料。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-huidong-banping",
+      "name": "惠东稔平半岛（平海·巽寮）",
+      "city": "惠州",
+      "district": "惠东县",
+      "lat": 22.65,
+      "lng": 114.9,
+      "approx": true,
+      "temp": 70,
+      "springType": [
+        "氯化钠泉",
+        "偏硅酸泉",
+        "硫泉"
+      ],
+      "tags": [
+        "海边温泉",
+        "深海泉",
+        "三料合一"
+      ],
+      "intro": "稔平半岛南端，深海地热咸水温泉，含氯化钠、偏硅酸、硫等40多种矿物质，海边泡汤体验。",
+      "hotelCount": "2+家温泉度假区",
+      "hotels": [
+        {
+          "name": "惠州海滨温泉度假区",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "深海地热泉，水质微咸爽滑",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "金海湾嘉华度假酒店",
+          "cert": "医疗价值冷泉",
+          "authenticity": "false",
+          "price": "待核实",
+          "desc": "巽寮湾畔，东南亚风情；南都2023年调查指其为海泉SPA、无温泉采矿证（非天然地热温泉）",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "惠州海滨温泉度假区",
+        "lat": 22.75,
+        "lng": 114.9,
+        "approx": true
+      },
+      "source": "南方+ / 南都温泉资源调查",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "mixed",
+      "sourceUrl": "https://static.nfapp.southcn.com/content/202311/28/c8344295.html",
+      "notes": "平海海滨温泉为真地热温泉（惠东唯一持证）；巽寮湾一带的「金海湾嘉华」等酒店被南都2023年调查指为海泉SPA、无温泉采矿证，非天然地热温泉，选店需留意。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-huidong-baipenzhu",
+      "name": "惠东白盆珠镇",
+      "city": "惠州",
+      "district": "惠东县",
+      "lat": 23.15,
+      "lng": 115.05,
+      "approx": true,
+      "temp": 60,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "自然泉眼",
+        "山水"
+      ],
+      "intro": "白盆珠水库旁的温泉片区，泉眼自然喷出，水温接近70℃，偏硅酸含量高。",
+      "hotelCount": "3+家温泉酒店/民宿",
+      "hotels": [
+        {
+          "name": "白盆湖温泉（顺逸东方白盆湖温泉）",
+          "cert": null,
+          "price": "待核实",
+          "desc": "自然泉眼，偏硅酸养生",
+          "source": "旅游平台",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "惠东白盆珠御汤温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "扶圳片区，20多个泉眼，中心泉眼水温可达80℃",
+          "source": "公开酒店资料",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "惠东白盆珠果园温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "白盆珠镇横江村汤仔扶圳温泉住宿",
+          "source": "公开酒店资料",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "顺逸东方白盆湖温泉",
+        "lat": 23.05,
+        "lng": 114.95,
+        "approx": true
+      },
+      "source": "南方+/惠州日报/公开酒店资料",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://static.nfapp.southcn.com/content/202311/28/c8344295.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-huidong-andun",
+      "name": "惠东安墩镇热汤村",
+      "city": "惠州",
+      "district": "惠东县",
+      "lat": 23.3,
+      "lng": 115,
+      "approx": true,
+      "temp": 90,
+      "springType": [
+        "硫磺泉"
+      ],
+      "tags": [
+        "高温泉",
+        "温泉民宿集群"
+      ],
+      "intro": "热汤村温泉，水温高达90℃的硫磺泉，百余家温泉民宿聚集，乡村温泉体验。",
+      "hotelCount": "约60家温泉旅游企业",
+      "hotels": [
+        {
+          "name": "御上明珠温泉度假村（安墩热汤店）",
+          "cert": null,
+          "price": "待核实",
+          "desc": "热汤村较大型温泉酒店，客房内设私密温泉池",
+          "source": "南方+/公开酒店资料",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "泉中湖温泉度假村（安墩热汤店）",
+          "cert": null,
+          "price": "待核实",
+          "desc": "热汤村温泉度假酒店",
+          "source": "公开酒店资料",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "御上明珠温泉度假村",
+        "lat": 23.3,
+        "lng": 115.0,
+        "approx": true
+      },
+      "source": "南方+/南都温泉资源调查",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://static.nfapp.southcn.com/content/202311/28/c8344295.html",
+      "notes": "热汤村确有温泉经营集聚，但南都报道指出当时经营主体普遍存在地热水采矿许可不足问题，不等同于全部经营主体具备合法采矿资质。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-huicheng-hengli",
+      "name": "惠城横沥镇黄沙洞村",
+      "city": "惠州",
+      "district": "惠城区",
+      "lat": 23.28,
+      "lng": 114.55,
+      "approx": true,
+      "temp": 75,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "温泉民宿村",
+        "天然水库"
+      ],
+      "intro": "黄沙洞温泉度假区，46户温泉民宿形成的乡村旅游产业，毗邻300万m³天然水库，森林覆盖率93%。",
+      "hotelCount": "46户温泉民宿/经营户",
+      "hotels": [
+        {
+          "name": "惠林温泉（惠林汤泉）",
+          "cert": null,
+          "price": "待核实",
+          "desc": "60-90℃天然温泉",
+          "source": "旅游平台",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "惠林温泉（中海汤泉）",
+        "lat": 23.15,
+        "lng": 114.55,
+        "approx": true
+      },
+      "source": "南都温泉资源调查",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://epaper.oeeee.com/epaper/A/html/2023-12/15/content_21777.htm",
+      "notes": "黄沙洞村已形成温泉民宿产业，但公开报道提示当地地热资源开采资质需要继续核验。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-boluo-changning",
+      "name": "博罗长宁镇（罗浮山）",
+      "city": "惠州",
+      "district": "博罗县",
+      "lat": 23.27,
+      "lng": 114,
+      "approx": true,
+      "temp": 58,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "罗浮山",
+        "康养带"
+      ],
+      "intro": "罗浮山脚下的温泉片区，属环南昆山—罗浮山康养发展带。",
+      "hotelCount": "2+",
+      "hotels": [
+        {
+          "name": "罗浮山嘉宝田养生温泉",
+          "cert": null,
+          "authenticity": "unknown",
+          "price": "待核实",
+          "desc": "57个泡池，五大主题养生区；博罗地热田未开发，温泉真实性待核实",
+          "source": "旅游平台",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "罗浮山嘉宝田温泉",
+        "lat": 23.18,
+        "lng": 114.02,
+        "approx": true
+      },
+      "source": "环南昆山—罗浮山县镇村高质量发展引领区官方文件/旅游资料",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "uncertain",
+      "sourceUrl": "https://www.gd.gov.cn/gdywdt/gdyw/content/post_4606308.html",
+      "notes": "罗浮山片区有4个地热田（长宁镇、罗阳镇），但惠州市自然资源局资料显示截至2023年尚未开发地热水资源；嘉宝田等酒店宣传的温泉真实性待核实。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-hz-huiyang-shatian",
+      "name": "惠阳沙田镇",
+      "city": "惠州",
+      "district": "惠阳区",
+      "lat": 22.85,
+      "lng": 114.55,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "近市区",
+        "交通便利"
+      ],
+      "intro": "惠阳唯一地热田所在（海塘岗），离市区近，交通便利。",
+      "hotelCount": "1+",
+      "hotels": [
+        {
+          "name": "碧桂园润杨溪谷温泉",
+          "cert": "真温泉·2021新增认证",
+          "price": "待核实",
+          "desc": "户内外泡池多样，2021年通过省温泉行业协会真温泉泉质认证",
+          "source": "广东省温泉行业协会2021年复核名单（南方日报）",
+          "sourceUrl": "https://news.southcn.com/node_54a44f01a2/04bca6e9e8.shtml",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        }
+      ],
+      "poi": {
+        "name": "碧桂园润杨溪谷温泉",
+        "lat": 22.85,
+        "lng": 114.55,
+        "approx": true
+      },
+      "source": "公开旅游资料/惠州市地热田公开报道",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://k.sina.com.cn/article_7857141524_1d4527714019038h9q.html",
+      "notes": "沙田镇有地热田记录（海塘岗），碧桂园润杨溪谷2021年通过省温泉行业协会真温泉泉质认证；区域整体经营场所与营业状态仍待核实。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-enping-liangxi",
+      "name": "恩平良西镇",
+      "city": "江门",
+      "district": "恩平市",
+      "lat": 22.25,
+      "lng": 112.3,
+      "approx": true,
+      "temp": 73,
+      "springType": [
+        "氟泉",
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "中国温泉之乡",
+        "滑温泉",
+        "5A"
+      ],
+      "intro": "恩平「中国温泉之乡」核心镇，帝都温泉水温73℃，世界罕见的滑温泉。",
+      "hotelCount": "3+家温泉景区/酒店",
+      "hotels": [
+        {
+          "name": "帝都温泉",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "5A级，200万㎡园区，滑温泉",
+          "source": "真温泉名单/省情网",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "温泉王国",
+          "cert": null,
+          "price": "待核实",
+          "desc": "小苏打泉",
+          "source": "省情网",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "恩平恒大泉都酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "良西镇泉都大道，五国温泉小镇",
+          "source": "酒店官网/恩平市政府",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "恩平温泉国际酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "良西镇温泉酒店",
+          "source": "恩平市旅游投诉公开信息",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "帝都温泉",
+        "lat": 22.195,
+        "lng": 112.346,
+        "approx": true
+      },
+      "source": "恩平市良西镇政府/恩平市政府旅游概况",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://www.enping.gov.cn/gzjg/epslxzrmzf/zjgk/content/post_3230871.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-enping-datian",
+      "name": "恩平大田镇·朗底",
+      "city": "江门",
+      "district": "恩平市",
+      "lat": 22.28,
+      "lng": 112.22,
+      "approx": true,
+      "temp": 68,
+      "springType": [
+        "氟泉",
+        "偏硅酸泉",
+        "氡泉"
+      ],
+      "tags": [
+        "三料温泉",
+        "美人泉",
+        "4A"
+      ],
+      "intro": "锦江水库与七星坑原始森林之间，锦江温泉为含氡氟偏硅酸「三料」温泉，山泉湾为碳酸氢钠「美人泉」。",
+      "hotelCount": "2+",
+      "hotels": [
+        {
+          "name": "锦江温泉",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "4A，「中国动感第一泉」，70+泡池",
+          "source": "真温泉名单/锦江官网",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "山泉湾温泉酒店",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "4A，「美人泉」，50个泡池，水温68℃",
+          "source": "真温泉名单/江门市政府",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "锦江温泉",
+        "lat": 22.25,
+        "lng": 112.3,
+        "approx": true
+      },
+      "source": "恩平市文化广电旅游体育局/江门市政府",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://www.enping.gov.cn/zwgk/xxgkml/epswhgdlytyj/gzdt/content/post_3290412.html",
+      "notes": "山泉湾与锦江温泉均位于恩平市大田镇朗底片区。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-enping-naji",
+      "name": "恩平那吉镇",
+      "city": "江门",
+      "district": "恩平市",
+      "lat": 22.15,
+      "lng": 112.22,
+      "approx": true,
+      "temp": null,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "天下第二泉",
+        "天然泉眼"
+      ],
+      "intro": "金山温泉所在地，天然泉眼300多处，含48种微量元素，被誉为「天下第二泉」。",
+      "hotelCount": "温泉资源点（当前停业招商）",
+      "hotels": [
+        {
+          "name": "金山温泉",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "占地800亩，天然泉眼300多处",
+          "source": "真温泉名单/本地宝",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "金山温泉",
+        "lat": 22.22,
+        "lng": 112.22,
+        "approx": true
+      },
+      "source": "恩平市政府旅游概况",
+      "verified": true,
+      "status": "closed_or_recruiting",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://www.enping.gov.cn/zjep/lygk/index.html",
+      "notes": "恩平市政府旅游概况明确标注金山温泉“停业招商”，暂不作为当前可泡推荐。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-enping-quanlin",
+      "name": "恩平东成镇·泉林温泉小镇",
+      "city": "江门",
+      "district": "恩平市东成镇",
+      "lat": 22.19,
+      "lng": 112.34,
+      "approx": true,
+      "temp": 60,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "温泉小镇",
+        "高尔夫",
+        "那金谷"
+      ],
+      "intro": "恩平七大温泉度假区之一，温泉+高尔夫+那金谷景区综合体。",
+      "hotelCount": "1+家温泉酒店/泉世界",
+      "hotels": [
+        {
+          "name": "恩平泉林酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "东成镇泉林路，别墅酒店+水禾田泉世界",
+          "source": "酒店官方页面",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "泉林水禾田泉世界",
+          "cert": null,
+          "price": "待核实",
+          "desc": "稻田景观温泉与亲子度假业态",
+          "source": "恩平市政府旅游概况/酒店官方页面",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "泉林水禾田温泉",
+        "lat": 22.2,
+        "lng": 112.38,
+        "approx": true
+      },
+      "source": "恩平市政府旅游概况/泉林酒店官方页面",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.greenlandresort.cn/",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-taishan-sanhe",
+      "name": "台山三合镇",
+      "city": "江门",
+      "district": "台山市",
+      "lat": 22.25,
+      "lng": 112.52,
+      "approx": true,
+      "temp": 89,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "高温富硒",
+        "侨乡"
+      ],
+      "intro": "台山温泉核心镇之一，高温富硒温泉，喜运来、颐和温泉城在此。",
+      "hotelCount": "2+",
+      "hotels": [
+        {
+          "name": "台山喜运来温泉大酒店",
+          "cert": "真温泉·第三批",
+          "price": "待核实",
+          "desc": "老牌温泉酒店",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "颐和温泉城",
+          "cert": null,
+          "price": "待核实",
+          "desc": "温泉城综合体",
+          "source": "省情网",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "台山颐和温泉",
+        "lat": 22.21,
+        "lng": 112.75,
+        "approx": true
+      },
+      "source": "台山市政府/江门市文旅局",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://www.cnts.gov.cn/tssrmzf/tsyw/ztbd/qylyzt/content/post_3504276.html",
+      "notes": "三合镇为台山温泉核心片区，颐和澜悦、喜运来均有公开运营资料。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-taishan-baisha",
+      "name": "台山白沙镇朗南村",
+      "city": "江门",
+      "district": "台山市",
+      "lat": 22.18,
+      "lng": 112.56,
+      "approx": true,
+      "temp": 90.5,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "108池",
+        "东南亚风情"
+      ],
+      "intro": "康桥温泉所在地，国内首家超过100个温泉池的度假区。",
+      "hotelCount": "1+",
+      "hotels": [
+        {
+          "name": "康桥温泉度假村",
+          "cert": "真温泉·第二批",
+          "price": "待核实",
+          "desc": "占地2400亩，108个温泉池",
+          "source": "真温泉名单/省情网",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "康桥温泉度假村",
+        "lat": 22.35,
+        "lng": 112.6,
+        "approx": true
+      },
+      "source": "江门市文化广电旅游体育局/台山市政府",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.jiangmen.gov.cn/bmpd/jmswhgdlytyj/zwgk/zdlyxxgk/lyscjgzfxxgk/ajjq/content/post_2865564.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-taishan-guanghai",
+      "name": "台山广海·都斛",
+      "city": "江门",
+      "district": "台山市",
+      "lat": 21.98,
+      "lng": 112.78,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "沿海",
+        "小型泉点"
+      ],
+      "intro": "台山温泉带沿海延伸的小型泉点，开发规模待核实。",
+      "hotelCount": "待核实",
+      "hotels": [
+        {
+          "name": "台山富都温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "都斛镇深海咸水温泉，现名富丽湾大酒店",
+          "source": "台山市政府/公开资料",
+          "sourceUrl": "https://baike.baidu.com/item/台山富都温泉度假村/3762624",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        }
+      ],
+      "poi": {
+        "name": "台山富都温泉度假村",
+        "lat": 21.95,
+        "lng": 112.95,
+        "approx": true
+      },
+      "source": "广东省情网江门温泉带资料",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "mixed",
+      "sourceUrl": "http://dfz.gd.gov.cn/zjgd/content/post_4483818.html",
+      "notes": "都斛镇富都温泉为天然深海咸水温泉（有地热采矿权）；但广海镇暂无公开地热田记录，区域内温泉资源分布不均。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-kaiping-chishui",
+      "name": "开平赤水镇",
+      "city": "江门",
+      "district": "开平市",
+      "lat": 22.15,
+      "lng": 112.58,
+      "approx": true,
+      "temp": 58,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "碉楼游",
+        "偏硅酸"
+      ],
+      "intro": "开平温泉带西北端，香江温泉配碉楼文化游，赤水温泉小型喷涌点。",
+      "hotelCount": "2+",
+      "hotels": [
+        {
+          "name": "开平香江温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "占地1000亩，60+多功能池，68幢别墅",
+          "source": "本地宝",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "开平香江温泉度假村",
+        "lat": 22.28,
+        "lng": 112.55,
+        "approx": true
+      },
+      "source": "广东省情网/历史旅游资料",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://sz.bendibao.com/tour/2007125/ly55755.html",
+      "notes": "香江温泉公开资料较早，当前营业状态、泉源资质和酒店清单需要重新核实。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-jm-xinhui-gudou",
+      "name": "新会古兜山（古兜温泉小镇）",
+      "city": "江门",
+      "district": "新会区",
+      "lat": 22.16,
+      "lng": 113,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "氯化钠泉",
+        "氡泉"
+      ],
+      "tags": [
+        "一地两泉",
+        "咸泉+淡泉",
+        "5星温泉"
+      ],
+      "intro": "江门唯一「一地两泉」：海洋温泉（咸）与氡温泉（淡），中国五星温泉，3000多亩温泉小镇。",
+      "hotelCount": "6家主题酒店",
+      "hotels": [
+        {
+          "name": "古兜温泉小镇",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "4A+中国五星温泉，六大主题酒店",
+          "source": "真温泉名单/江门文旅局",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "古兜皇家SPA酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "精品五星皇家园林主题酒店，设唐宫与东瀛阁",
+          "source": "古兜官方",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        },
+        {
+          "name": "古兜月泉湖居",
+          "cert": null,
+          "price": "待核实",
+          "desc": "新中式陈皮主题康养酒店，36间温泉套房",
+          "source": "古兜官方",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        }
+      ],
+      "poi": {
+        "name": "古兜温泉小镇",
+        "lat": 22.150092,
+        "lng": 113.024155,
+        "approx": false
+      },
+      "source": "江门市文化广电旅游体育局/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://www.jiangmen.gov.cn/bmpd/jmswhgdlytyj/ztzl/lyzx/ajjq/content/post_2970338.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zh-doumen",
+      "name": "珠海斗门（黄杨山）",
+      "city": "珠海",
+      "district": "斗门区",
+      "lat": 22.2,
+      "lng": 113.25,
+      "approx": true,
+      "temp": 62,
+      "springType": [
+        "氯化钠泉"
+      ],
+      "tags": [
+        "东瀛风吕",
+        "老牌"
+      ],
+      "intro": "黄杨山下的御温泉渡假村，以日式东瀛风吕风格闻名，珠海老牌温泉。",
+      "hotelCount": "1+",
+      "hotels": [
+        {
+          "name": "珠海御温泉",
+          "cert": null,
+          "price": "待核实",
+          "desc": "东瀛风吕主题温泉，1300多年温泉历史地区",
+          "source": "媒体报道",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "珠海御温泉",
+        "lat": 22.249561,
+        "lng": 113.196409,
+        "approx": false
+      },
+      "source": "珠海市政府公开信息/媒体报道",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.zhuhai.gov.cn/xw/xwzx/gqdt/index_5.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zh-pingsha",
+      "name": "珠海金湾平沙（海泉湾）",
+      "city": "珠海",
+      "district": "金湾区",
+      "lat": 22.06,
+      "lng": 113.18,
+      "approx": true,
+      "temp": 40,
+      "springType": [
+        "氯化钠泉"
+      ],
+      "tags": [
+        "海洋温泉",
+        "度假区"
+      ],
+      "intro": "海泉湾度假区，源自海洋的温泉资源，泉海相接的大型综合度假区。",
+      "hotelCount": "1+",
+      "hotels": [
+        {
+          "name": "珠海海泉湾度假区",
+          "cert": "真温泉·第一批",
+          "price": "待核实",
+          "desc": "海洋温泉，大型综合度假区",
+          "source": "真温泉名单",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "珠海海泉湾度假区",
+        "lat": 22.065024,
+        "lng": 113.117467,
+        "approx": false
+      },
+      "source": "珠海市自然资源局/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://zrzyj.zhuhai.gov.cn/zwgk/gggs/kczygl/content/post_3832826.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zs-sanxiang",
+      "name": "中山三乡温泉度假区",
+      "city": "中山",
+      "district": "三乡镇",
+      "lat": 22.36,
+      "lng": 113.46,
+      "approx": true,
+      "temp": 93,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "中国十大温泉",
+        "岭南名汤",
+        "省级度假区"
+      ],
+      "intro": "5.45km²省级旅游度假区，泉眼93℃，偏硅酸含量高于标准3倍，中山温泉宾馆为「中国十大温泉」「改革开放活化石」。",
+      "hotelCount": "3+家酒店/温泉经营点",
+      "hotels": [
+        {
+          "name": "中山温泉宾馆",
+          "cert": "真温泉·第三批",
+          "price": "待核实",
+          "desc": "1980年开业，接待过100多位国家领导人",
+          "source": "真温泉名单/中山市府",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "仙沐园温泉",
+          "cert": null,
+          "price": "待核实",
+          "desc": "药疗温泉系列，全国首个温泉矿沙浴",
+          "source": "中山市政府",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "中山名座假日酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "度假区内五星酒店",
+          "source": "中山市政府",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "中山温泉宾馆",
+        "lat": 22.371193,
+        "lng": 113.46011,
+        "approx": false
+      },
+      "source": "中山温泉旅游度假区官方页面/中山市政府",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.zhongshanhotspring.com/page/106985.html",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zs-quanyan",
+      "name": "中山泉眼温泉",
+      "city": "中山",
+      "district": "三乡镇泉眼村",
+      "lat": 22.38,
+      "lng": 113.38,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "待核实"
+      ],
+      "intro": "泉眼温泉旅游度假酒店，位置与泉质待核实。",
+      "hotelCount": "1+",
+      "hotels": [
+        {
+          "name": "泉眼温泉旅游度假酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "待核实",
+          "source": "榜单收录",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "中山泉眼温泉",
+        "lat": 22.32,
+        "lng": 113.5,
+        "approx": true
+      },
+      "source": "中山市卫生健康局公开信息",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "http://wjj.zs.gov.cn/xxml/tzgg/ggxx/content/post_2474996.html",
+      "notes": "公开政府名单确认中山市泉眼温泉旅游度假酒店位于三乡泉眼村兴泉路1号；具体营业项目和泉质资料仍建议出发前确认。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-dg-tangxia",
+      "name": "东莞塘厦（三正半山）",
+      "city": "东莞",
+      "district": "塘厦镇",
+      "lat": 22.79,
+      "lng": 114.09,
+      "approx": true,
+      "temp": 36,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "双料五星",
+        "改写东莞无温泉历史"
+      ],
+      "intro": "2018年钻井打出三口温泉井，广东首家「双料五星」温泉酒店，改写东莞无温泉历史。",
+      "hotelCount": "1",
+      "hotels": [
+        {
+          "name": "东莞塘厦三正半山温泉酒店",
+          "cert": "真温泉·第三批",
+          "price": "待核实",
+          "desc": "五星级，38个泡池，558间客房，40万m²湖面",
+          "source": "真温泉名单/酒店官网",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "东莞塘厦三正半山温泉",
+        "lat": 22.813479,
+        "lng": 114.066123,
+        "approx": false
+      },
+      "source": "酒店官方页面/真温泉名单",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://www.tangxiagoodview.com/",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zq-huaiji-lanzhong",
+      "name": "怀集蓝钟镇双兴村",
+      "city": "肇庆",
+      "district": "怀集县",
+      "lat": 23.98,
+      "lng": 111.95,
+      "approx": true,
+      "temp": 78,
+      "springType": [
+        "偏硅酸泉",
+        "氟泉"
+      ],
+      "tags": [
+        "纯天然温泉村",
+        "温泉民宿",
+        "在建度假区"
+      ],
+      "intro": "0.5km²内布满天然泉眼，偏硅酸含量比山泉水高65倍，PH9.7，6家温泉民宿，12亿岳山温泉度假区在建。",
+      "hotelCount": "6家民宿+在建",
+      "hotels": [
+        {
+          "name": "蓝钟温泉民宿群",
+          "cert": null,
+          "price": "待核实",
+          "desc": "村内6家温泉民宿",
+          "source": "肇庆发布",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "岳山温泉旅游度假区",
+          "cert": null,
+          "price": "待开业",
+          "desc": "12亿投资，690间客房，在建",
+          "source": "肇庆发布",
+          "verified": true,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "蓝钟双兴温泉",
+        "lat": 23.91,
+        "lng": 112.18,
+        "approx": true
+      },
+      "source": "广东省文化和旅游厅/肇庆公开资料",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://whly.gd.gov.cn/service_new/hdyg/content/post_4340496.html",
+      "notes": "官方旅游线路资料记载双兴温泉已有温泉民宿集聚区；岳山温泉旅游度假区属于建设项目，不能按已开业酒店展示。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zq-guangning-paisha",
+      "name": "广宁排沙镇（翡翠湾）",
+      "city": "肇庆",
+      "district": "广宁县",
+      "lat": 23.55,
+      "lng": 112.35,
+      "approx": true,
+      "temp": null,
+      "springType": [
+        "硫磺泉"
+      ],
+      "tags": [
+        "竹海秘境",
+        "高端别墅"
+      ],
+      "intro": "竹子之乡广宁，2700米深硫磺温泉，绥江竹海环绕的高端温泉别墅度假区。",
+      "hotelCount": "1家温泉别墅度假酒店",
+      "hotels": [
+        {
+          "name": "广东翡翠湾白天鹅温泉度假酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "61栋别墅，私家花园温泉泡池",
+          "source": "酒店官网",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "广东翡翠湾白天鹅温泉度假酒店",
+        "lat": 23.63,
+        "lng": 112.42,
+        "approx": true
+      },
+      "source": "翡翠湾白天鹅温泉度假酒店官方页面",
+      "verified": true,
+      "status": "operating",
+      "springAuthenticity": "true",
+      "sourceUrl": "https://m.whiteswangreenbay.cn/",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zq-sihui-zhenshan",
+      "name": "四会贞山镇",
+      "city": "肇庆",
+      "district": "四会市",
+      "lat": 23.32,
+      "lng": 112.6,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "碳酸氢钠泉"
+      ],
+      "tags": [
+        "碳酸氢钠泉",
+        "疗养"
+      ],
+      "intro": "四会贞山温泉度假村，以碳酸氢钠泉闻名，对皮肤疾病有疗效，广东省内著名温泉疗养地之一。",
+      "hotelCount": "2+",
+      "hotels": [
+        {
+          "name": "贞山温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "依山傍水，疗养圣地",
+          "source": "旅游资料",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        },
+        {
+          "name": "四会龙湾温泉度假村",
+          "cert": null,
+          "price": "待核实",
+          "desc": "偏高端商务温泉",
+          "source": "旅游资料",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "四会山湖温泉",
+        "lat": 23.38,
+        "lng": 112.73,
+        "approx": true
+      },
+      "source": "旅游资料（待官方营业资料核实）",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "uncertain",
+      "sourceUrl": "https://www.bang.cn/article/150410.html",
+      "notes": "贞山为旅游度假区，温泉多宣传为「温矿泉/锶水温泉」，未查到明确地热田记录，泉水是否为天然地热温泉待核实。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zq-deqing-guanyu",
+      "name": "德庆官圩镇（盘龙峡）",
+      "city": "肇庆",
+      "district": "德庆县",
+      "lat": 23.2,
+      "lng": 111.87,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "盘龙峡",
+        "瀑布峡谷"
+      ],
+      "intro": "盘龙峡生态旅游区内的森林温泉，峡谷瀑布景观，30余种矿物质。",
+      "hotelCount": "1+",
+      "hotels": [
+        {
+          "name": "德庆盘龙峡温泉",
+          "cert": null,
+          "price": "待核实",
+          "desc": "森林温泉SPA，峡谷景观",
+          "source": "旅游资料",
+          "verified": false,
+          "checkedAt": "2026-08-07"
+        }
+      ],
+      "poi": {
+        "name": "德庆盘龙峡温泉",
+        "lat": 23.25,
+        "lng": 111.9,
+        "approx": true
+      },
+      "source": "旅游资料（待官方营业资料核实）",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "uncertain",
+      "sourceUrl": "https://www.bang.cn/article/118779.html",
+      "notes": "盘龙峡以峡谷漂流为主，温泉宣传为「森林温矿泉SPA」，无地热田记录，泉水真实性待核实。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zq-fengkai-luodong",
+      "name": "封开罗董镇",
+      "city": "肇庆",
+      "district": "封开县",
+      "lat": 23.38,
+      "lng": 111.58,
+      "approx": true,
+      "temp": 55,
+      "springType": [
+        "偏硅酸泉"
+      ],
+      "tags": [
+        "龙山",
+        "待核实"
+      ],
+      "intro": "封开龙山温泉，位于封开县北部山区，规模与开发情况待核实。",
+      "hotelCount": "待核实",
+      "hotels": [
+        {
+          "name": "封开奇境岭南东方酒店",
+          "cert": null,
+          "price": "待核实",
+          "desc": "龙山景区内，天然溶洞水泡池，四星级标准（实际位于河儿口镇）",
+          "source": "岭南酒店/公开资料",
+          "verified": true,
+          "checkedAt": "2026-08-13"
+        }
+      ],
+      "poi": {
+        "name": "封开奇境岭南东方酒店",
+        "lat": 23.2,
+        "lng": 111.7,
+        "approx": true
+      },
+      "source": "旅游资料（待官方营业资料核实）",
+      "verified": false,
+      "status": "needs_review",
+      "springAuthenticity": "uncertain",
+      "sourceUrl": "https://www.cnxds.com/2024baiqi/baiye/ynwenhua/881846.html",
+      "notes": "封开的温泉经营点实际位于河儿口镇（龙山景区奇境酒店）与渔涝镇（千层峰），非罗董镇；罗董镇温泉信息疑似错位，泉水真实性待核实。",
+      "checkedAt": "2026-08-07"
+    },
+    {
+      "id": "gd-zq-gaoyao-jinli",
+      "name": "高要金利镇",
+      "city": "肇庆",
+      "district": "高要区",
+      "lat": 23.03,
+      "lng": 112.75,
+      "approx": true,
+      "temp": null,
+      "springType": [],
+      "tags": [
+        "资料存疑"
+      ],
+      "intro": "高要金利曾有温泉营销信息，但无权威地热田记录，未核实到可泡经营点。",
+      "hotelCount": "待核实",
+      "hotels": [],
+      "source": "旅游资料（待官方营业资料核实）",
+      "verified": false,
+      "status": "resource_only",
+      "springAuthenticity": "uncertain",
+      "sourceUrl": "https://www.cnxds.com/2024baiqi/baiye/yndujia/881853.html",
+      "notes": "无权威地热田记录，仅有零星营销资料且互相矛盾，未核实到任何可泡温泉经营点；暂作为资源记录保留，不建议作为泡汤目的地。",
+      "checkedAt": "2026-08-13"
+    }
+  ]
+}
