@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixCollect — AI Works Collection</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+* { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+
+body {
+  background: #09090b;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168,85,247,.08), transparent);
+}
+
+/* 瀑布流 */
+.masonry { columns: 2; column-gap: 1rem; }
+@media (min-width: 1024px) { .masonry { columns: 3; } }
+@media (min-width: 1536px) { .masonry { columns: 4; } }
+.masonry > * { break-inside: avoid; margin-bottom: 1rem; }
+
+/* 卡片 */
+.card {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #18181b;
+  border: 1px solid rgba(255,255,255,.06);
+  transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s, border-color .35s;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,.6);
+  border-color: rgba(168,85,247,.35);
+}
+.card-media { position: relative; overflow: hidden; }
+.card-media img, .card-media video {
+  width: 100%; display: block;
+  transition: transform .5s ease;
+}
+.card:hover .card-media img { transform: scale(1.05); }
+
+/* 分区 tab */
+.tab {
+  padding: .5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: .875rem;
+  color: #a1a1aa;
+  transition: all .25s;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.tab:hover { color: #e4e4e7; background: #18181b; }
+.tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  box-shadow: 0 8px 20px -8px rgba(168,85,247,.5);
+}
+
+/* 上传按钮 */
+.btn-upload {
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  transition: all .3s;
+  box-shadow: 0 10px 24px -10px rgba(168,85,247,.6);
+}
+.btn-upload:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+/* 音乐频谱动画 */
+@keyframes eq {
+  0%,100% { height: 30%; }
+  50% { height: 100%; }
+}
+.eq-bar {
+  width: 4px; border-radius: 2px;
+  background: linear-gradient(to top, #8b5cf6, #d946ef);
+  animation: eq 1s ease-in-out infinite;
+}
+
+/* 标签 */
+.tag {
+  font-size: .75rem; padding: .2rem .7rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.06);
+  color: #a1a1aa;
+  transition: all .2s;
+}
+.tag:hover { background: rgba(168,85,247,.2); color: #e9d5ff; }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+</style>
+</head>
+
+<body class="text-white min-h-screen">
+
+<!-- ======== 顶部栏 ======== -->
+<header class="sticky top-0 z-40 backdrop-blur-xl bg-zinc-950/80 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3 shrink-0">
+      <!-- SVG Logo（四色拼块 + 火花） -->
+      <div class="relative w-10 h-10">
+        <svg viewBox="0 0 40 40" class="w-10 h-10">
+          <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="100%" stop-color="#d946ef"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="36" height="36" rx="12" fill="url(#lg1)" opacity="0.15"/>
+          <rect x="2" y="2" width="36" height="36" rx="12" fill="none" stroke="url(#lg1)" stroke-width="1.5"/>
+          <!-- 火花 -->
+          <path d="M20 9 C21.5 14, 24.5 16.5, 29 18 C24.5 19.5, 21.5 22, 20 27 C18.5 22, 15.5 19.5, 11 18 C15.5 16.5, 18.5 14, 20 9 Z" fill="url(#lg1)"/>
+        </svg>
+      </div>
+      <div class="leading-tight">
+        <div class="font-extrabold text-xl tracking-tight">PixCollect</div>
+        <div class="text-[10px] tracking-[0.2em] text-zinc-500 uppercase">AI Works Hub</div>
+      </div>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="flex-1 max-w-xl hidden md:block">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
+        <input id="search-input" onkeyup="if(event.key==='Enter') doSearch()"
+               placeholder="搜索作品、模型、创作者…"
+               class="w-full bg-zinc-900/80 border border-white/10 rounded-full py-2.5 pl-11 pr-4 text-sm placeholder-zinc-500 focus:outline-none focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20 transition"/>
+      </div>
+    </div>
+
+    <!-- 右侧操作 -->
+    <div class="flex items-center gap-3 shrink-0">
+      <button onclick="showUploadModal()" class="btn-upload hidden sm:flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold">
+        <i class="fa-solid fa-plus"></i> 发布作品
+      </button>
+      <button onclick="showUploadModal()" class="btn-upload sm:hidden w-10 h-10 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="w-9 h-9 rounded-full bg-gradient-to-br from-zinc-700 to-zinc-800 ring-2 ring-white/10 flex items-center justify-center text-sm select-none">A</div>
+    </div>
+  </div>
+
+  <!-- 分区 Tab -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-3 overflow-x-auto no-scrollbar flex gap-2">
+    <button class="tab active" data-cat="all" onclick="switchCat('all', this)">全部</button>
+    <button class="tab" data-cat="image" onclick="switchCat('image', this)"><i class="fa-regular fa-image mr-1.5"></i>图像</button>
+    <button class="tab" data-cat="video" onclick="switchCat('video', this)"><i class="fa-solid fa-clapperboard mr-1.5"></i>视频</button>
+    <button class="tab" data-cat="music" onclick="switchCat('music', this)"><i class="fa-solid fa-music mr-1.5"></i>音乐</button>
+    <button class="tab" data-cat="novel" onclick="switchCat('novel', this)"><i class="fa-solid fa-book-open mr-1.5"></i>小说</button>
+    <button class="tab" data-cat="3d" onclick="switchCat('3d', this)"><i class="fa-solid fa-cube mr-1.5"></i>3D</button>
+    <button class="tab" data-cat="code" onclick="switchCat('code', this)"><i class="fa-solid fa-code mr-1.5"></i>代码</button>
+  </div>
+</header>
+
+<!-- ======== 主内容 ======== -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+
+  <!-- 今日热榜横幅（轻量） -->
+  <section class="mb-8 rounded-3xl p-6 sm:p-8 relative overflow-hidden border border-white/5"
+           style="background: linear-gradient(120deg, rgba(139,92,246,.15), rgba(217,70,239,.1)), #18181b;">
+    <div class="absolute -right-8 -top-8 w-48 h-48 rounded-full bg-violet-500/20 blur-3xl"></div>
+    <div class="relative">
+      <div class="inline-flex items-center gap-2 text-xs font-medium text-violet-300 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1 mb-3">
+        <i class="fa-solid fa-fire"></i> 今日热榜
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">发现 AI 创造力</h2>
+      <p class="text-zinc-400 text-sm mt-1.5">图像 · 视频 · 音乐 · 小说，所有 AI 作品都在这里</p>
+    </div>
+  </section>
+
+  <!-- 瀑布流 -->
+  <div id="feed" class="masonry"></div>
+
+  <footer class="mt-12 pb-8 text-center text-xs text-zinc-600">
+    PixCollect · 开源原型 · 参考 Civitai (Apache 2.0) 与小红书信息流设计
+  </footer>
+</main>
+
+<!-- ======== 上传弹窗 ======== -->
+<div id="upload-modal" onclick="if(event.target===this) hideUploadModal()"
+     class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-zinc-900 rounded-3xl border border-white/10 p-8 animate-[pop_.3s_ease]">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-xl font-bold">发布你的 AI 作品</h3>
+      <button onclick="hideUploadModal()" class="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-zinc-400"></i>
+      </button>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <button onclick="chooseType('image')" class="group h-28 rounded-2xl border-2 border-dashed border-zinc-700 hover:border-violet-500 transition flex flex-col items-center justify-center gap-2">
+        <i class="fa-regular fa-image text-3xl text-violet-400 group-hover:scale-110 transition"></i>
+        <span class="text-sm font-medium">图像</span>
+      </button>
+      <button onclick="chooseType('video')" class="group h-28 rounded-2xl border-2 border-dashed border-zinc-700 hover:border-violet-500 transition flex flex-col items-center justify-center gap-2">
+        <i class="fa-solid fa-clapperboard text-3xl text-violet-400 group-hover:scale-110 transition"></i>
+        <span class="text-sm font-medium">视频</span>
+      </button>
+      <button onclick="chooseType('music')" class="group h-28 rounded-2xl border-2 border-dashed border-zinc-700 hover:border-violet-500 transition flex flex-col items-center justify-center gap-2">
+        <i class="fa-solid fa-music text-3xl text-violet-400 group-hover:scale-110 transition"></i>
+        <span class="text-sm font-medium">音乐</span>
+      </button>
+      <button onclick="chooseType('novel')" class="group h-28 rounded-2xl border-2 border-dashed border-zinc-700 hover:border-violet-500 transition flex flex-col items-center justify-center gap-2">
+        <i class="fa-solid fa-book-open text-3xl text-violet-400 group-hover:scale-110 transition"></i>
+        <span class="text-sm font-medium">小说</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>@keyframes pop { from { opacity:0; transform: scale(.92) translateY(10px);} to { opacity:1; transform: scale(1) translateY(0);} }
+.no-scrollbar::-webkit-scrollbar { display:none; } .no-scrollbar { scrollbar-width: none; }</style>
+
+<script>
+let currentCat = 'all';
+
+const products = [
+  // 图像
+  { id:1, cat:'image', title:'像素猫 · 桌面宠物', creator:'PixCat', model:'Flux.1', likes:1247, comments:86,
+    media:{ type:'img', src:'https://picsum.photos/id/1015/600/750', h:750 } },
+  { id:2, cat:'image', title:'霓虹雨夜的城市', creator:'NeonArt', model:'SDXL', likes:982, comments:54,
+    media:{ type:'img', src:'https://picsum.photos/id/1018/600/400', h:400 } },
+  { id:3, cat:'image', title:'赛博猫咪武士', creator:'CyberMeow', model:'Flux.1', likes:1560, comments:132,
+    media:{ type:'img', src:'https://picsum.photos/id/1025/600/900', h:900 } },
+  // 视频
+  { id:4, cat:'video', title:'AI 猫咪跳舞 8 秒', creator:'CatAI', model:'Kling 2.1', likes:892, comments:45,
+    media:{ type:'video', src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', poster:'https://picsum.photos/id/237/600/400', h:400 } },
+  { id:5, cat:'video', title:'海浪循环动画', creator:'FlowStudio', model:'Runway Gen-3', likes:734, comments:29,
+    media:{ type:'video', src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4', poster:'https://picsum.photos/id/28/600/500', h:500 } },
+  // 音乐
+  { id:6, cat:'music', title:'Lo-fi 深夜自习室', creator:'JAZZAI', model:'Suno v4', likes:654, comments:38,
+    media:{ type:'music', src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', h:260 } },
+  { id:7, cat:'music', title:'赛博电子脉冲', creator:'WaveGen', model:'Udio 1.5', likes:521, comments:22,
+    media:{ type:'music', src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', h:220 } },
+  // 小说
+  { id:8, cat:'novel', title:'像素猫的冒险日记', creator:'StoryAI', model:'Grok-4', likes:423, comments:67,
+    media:{ type:'novel', h:300 } },
+  { id:9, cat:'novel', title:'雾都侦探 · 第一章', creator:'MysteryWrite', model:'Claude 4.5', likes:318, comments:41,
+    media:{ type:'novel', h:260 } },
+  // 3D
+  { id:10, cat:'3d', title:'低多边形小岛', creator:'PolyArt', model:'Meshy', likes:287, comments:12,
+    media:{ type:'img', src:'https://picsum.photos/id/15/600/400', h:400 } },
+  // 代码
+  { id:11, cat:'code', title:'终端美化脚本', creator:'DevBot', model:'GPT-5', likes:199, comments:18,
+    media:{ type:'code', h:280 } },
+];
+
+function cardHTML(p) {
+  let mediaHTML = '';
+  const m = p.media;
+
+  if (m.type === 'img') {
+    mediaHTML = `<img src="${m.src}" alt="${p.title}" loading="lazy">`;
+  } else if (m.type === 'video') {
+    mediaHTML = `
+      <div class="relative">
+        <img src="${m.poster}" alt="${p.title}" class="opacity-80">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-black/50 backdrop-blur border border-white/20 flex items-center justify-center">
+            <i class="fa-solid fa-play text-white ml-1"></i>
+          </div>
+        </div>
+        <div class="absolute bottom-2 right-2 bg-black/60 text-[10px] px-2 py-0.5 rounded-md">${p.model}</div>
+      </div>`;
+  } else if (m.type === 'music') {
+    const bars = Array.from({length: 16}, (_,i) =>
+      `<div class="eq-bar" style="animation-delay:${i*0.07}s"></div>`).join('');
+    mediaHTML = `
+      <div class="h-56 sm:h-64 flex flex-col items-center justify-center gap-6"
+           style="background: linear-gradient(160deg,#1e1b4b,#18181b);">
+        <div class="flex items-end gap-1 h-16 px-2">${bars}</div>
+        <div class="text-xs text-zinc-400 flex items-center gap-2">
+          <i class="fa-solid fa-music text-violet-400"></i> ${p.model} · 点击试听
+        </div>
+      </div>`;
+  } else if (m.type === 'novel') {
+    mediaHTML = `
+      <div class="flex flex-col justify-center px-6"
+           style="height:${m.h}px; background: linear-gradient(160deg,#18181b,#1e1b4b);">
+        <div class="text-[10px] tracking-[0.25em] text-violet-400/80 mb-3">AI 小说 · ${p.model}</div>
+        <div class="text-lg font-bold leading-snug mb-3">${p.title}</div>
+        <div class="text-xs text-zinc-500 leading-relaxed line-clamp-4">第一章：清晨的第一缕阳光穿过像素森林，一只戴着围巾的小猫踏上旅途…</div>
+        <div class="flex items-center gap-2 mt-4">
+          <span class="tag"># 冒险</span><span class="tag"># 治愈</span>
+        </div>
+      </div>`;
+  } else if (m.type === 'code') {
+    mediaHTML = `
+      <div class="flex flex-col justify-center px-6"
+           style="height:${m.h}px; background:#0c0a09;">
+        <div class="text-[10px] tracking-[0.25em] text-emerald-400/80 mb-3 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+          <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+        </div>
+        <pre class="text-[11px] leading-relaxed text-emerald-300/90 overflow-hidden"><code>def hello_ai():
+    print("你好，AI 作品！")
+    return "✨"</code></pre>
+      </div>`;
+  }
+
+  return `
+    <div class="card" onclick="openDetail(${p.id})">
+      <div class="card-media" style="height:${m.h || 400}px">${mediaHTML}</div>
+      <div class="p-4">
+        <div class="flex items-center justify-between gap-3 mb-2.5">
+          <div class="flex items-center gap-2 min-w-0">
+            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-zinc-600 to-zinc-800 flex items-center justify-center text-[10px] shrink-0">${p.creator[0]}</div>
+            <span class="text-xs text-zinc-400 truncate">${p.creator}</span>
+          </div>
+          <span class="tag shrink-0">${p.cat === 'image' ? '图像' : p.cat === 'video' ? '视频' : p.cat === 'music' ? '音乐' : p.cat === 'novel' ? '小说' : p.cat === '3d' ? '3D' : '代码'}</span>
+        </div>
+        <div class="font-semibold text-[15px] leading-snug line-clamp-2 mb-3">${p.title}</div>
+        <div class="flex items-center justify-between text-xs text-zinc-500">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-heart text-rose-500/80"></i>${p.likes.toLocaleString()}</span>
+          <span class="flex items-center gap-1.5"><i class="fa-regular fa-comment"></i>${p.comments}</span>
+          <span class="flex items-center gap-1.5 text-zinc-600"><i class="fa-solid fa-share-nodes"></i></span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderFeed() {
+  const feed = document.getElementById('feed');
+  const list = currentCat === 'all' ? products : products.filter(p => p.cat === currentCat);
+  feed.innerHTML = list.length ? list.map(cardHTML).join('')
+    : `<div class="col-span-full text-center text-zinc-500 py-20">
+         <i class="fa-solid fa-box-open text-4xl mb-4 block opacity-40"></i>
+         该分区还没有作品，快去发布第一件吧！
+       </div>`;
+}
+
+function switchCat(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderFeed();
+}
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const feed = document.getElementById('feed');
+  if (!q) return renderFeed();
+  const list = products.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    p.creator.toLowerCase().includes(q) ||
+    p.model.toLowerCase().includes(q));
+  feed.innerHTML = list.length ? list.map(cardHTML).join('')
+    : `<div class="col-span-full text-center text-zinc-500 py-20">没有找到「${q}」相关作品</div>`;
+}
+
+function openDetail(id) {
+  const p = products.find(x => x.id === id);
+  alert(`「${p.title}」\n\n创作者：${p.creator}\n模型：${p.model}\n👍 ${p.likes} 赞 · 💬 ${p.comments} 评论\n\n（详情页 / 播放 / remix 待接入）`);
+}
+
+function showUploadModal() { document.getElementById('upload-modal').classList.remove('hidden'); }
+function hideUploadModal()  { document.getElementById('upload-modal').classList.add('hidden'); }
+function chooseType(t) {
+  hideUploadModal();
+  alert(`已选择「${t}」类型\n\n接下来可以接入：真实文件上传 / 生成预览 / 发布到信息流`);
+}
+
+window.onload = renderFeed;
+</script>
+</body>
+</html>
